@@ -17,7 +17,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -25,15 +25,15 @@ import java.util.Set;
 public class MetodosContactos {
     
         static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));	
-	private static Set<Persona> listPersona = new HashSet<Persona>();//inicializacion: implementa la lista set
-	private static Iterator<Persona> it = listPersona.iterator();
+	private static id = 0;
+	private static Set<Persona> listPersona = new LinkedHashSet<Persona>();//inicializacion: implementa la lista set
 	private static Set<Deportista> listDeportista = new HashSet<Deportista>();//inicializacion: implementa la lista set
 	private static Set<Doctor> listDoctor = new HashSet<Doctor>();//inicializacion: implementa la lista set
 	private static Set<Estudiante> listEstudiante = new HashSet<Estudiante>();//inicializacion: implementa la lista set
 	private static Set<Licenciado> listLicenciado = new HashSet<Licenciado>();//inicializacion: implementa la lista set
 	
 	public static void agregarPersona() throws IOException {//este metodo agrega a una lista todos los contactos(datos) de persona
-
+		id++;
 		listPersona.add((Persona) datosPersona());//variable: agregamos los datos a la lista
 	}
 	
@@ -74,17 +74,11 @@ public class MetodosContactos {
 			if(p.getNombre().equals(borrar))
 				listPersona.remove(p);
 		}
-		/*Persona nombre;
-		while(it.hasNext()){
-			nombre = it.next();
-			if(nombre.getNombre().equals(borrar))
-				it.remove();
-		}*/
 	}
 		
 	//El metodo a continuacion, se puede hacer referencia al metodo agregarPersona() solo con los datos de contacto deportista 
 	public static void agregarDeportista() throws IOException {
-
+		id++;
 		listDeportista.add((Deportista) datosDeportista());
 	}
 	//El metodo a continuacion, se puede hacer referencia al metodo datosPersona() solo con los datos de contacto deportista
@@ -134,7 +128,7 @@ public class MetodosContactos {
 	}
 	//El metodo a continuacion, se puede hacer referencia al metodo agregarPersona() solo con los datos de contacto doctor
 	public static void agregarDoctor() throws IOException {
-
+		id++;
 		listDoctor.add((Doctor) datosDoctor());
 	}
 	//El metodo a continuacion, se puede hacer referencia al metodo datosPersona() solo con los datos de contacto doctor
@@ -209,7 +203,7 @@ public class MetodosContactos {
 	}
 	//El metodo a continuacion, se puede hacer referencia al metodo agregarPersona() solo con los datos de contacto licenciado 
 	public static void agregarLicenciado() throws IOException {
-	
+		id++;
 		listLicenciado.add((Licenciado) datosLicenciado());
 	}
 	//El metodo a continuacion, se puede hacer referencia al metodo datosPersona() solo con los datos de contacto licenciado
@@ -262,7 +256,7 @@ public class MetodosContactos {
 		String apellidoM = in.readLine();
 		System.out.println("Medios de contacto");
 		Object medioC = medioContacto();//metodo: la opcion del medio de contacto
-		Contacto cont = new Contacto(nombre, apellidoP, apellidoM,medioC);
+		Contacto cont = new Contacto(id,nombre, apellidoP, apellidoM,medioC);
                 return cont;
 	}
 
