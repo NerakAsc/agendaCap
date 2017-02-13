@@ -74,5 +74,16 @@ public void setFechaN(String fechaN)
 
 public String getFechaN()
 {return fechaN;}
+public void setReemplazarC(String nombre, String apellidoP,String apellidoM,Object medioC) {
+	this.nombre=nombre;
+	this.apellidoP=apellidoP;
+	this.apellidoM=apellidoM;
+	this.medioC=medioC;
+}
 
+public String toString() {
+	String datosC = "Id: "+id+" NOMBRE: "+getNombre()+" APELLIDO PATERNO: "+getApellidoP()+" APELLIDO MATERNO: "+
+			getApellidoM();
+	return datosC;
+}
 }
