@@ -37,7 +37,7 @@ public String getOcupacion()
 {return ocupacion;}
 
 public void setReemplazarP(Persona per) {
-	super.reemplazarC(per.getNombre(), per.getApellidoP(), per.getApellidoM(), per.getMedioC());
+	super.setReemplazarC(per.getNombre(), per.getApellidoP(), per.getApellidoM(), per.getMedioC());
 	this.domicilio=per.getDomicilio();
 	this.medioPref=per.getMedioPref();
 	this.ocupacion=per.getOcupacion();
