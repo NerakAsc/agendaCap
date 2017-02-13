@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Contactos;
 
-/**
- *
- * @author akare
- */
+
 public class Contacto extends MediosContacto {
+	private int id;
 private String nombre;
 private String apellidoP;
 private String apellidoM;
@@ -18,7 +11,6 @@ private String fechaN;
 
 public Contacto()
 {
-
 nombre="Sin Nombre";
 apellidoP="Sin Apellido Paterno";
 apellidoM="Sin Apellido Materno";
@@ -26,23 +18,29 @@ apellidoM="Sin Apellido Materno";
 fechaN="Sin Fecha de Nacimiento";
 }
 
-public Contacto(String nombre, String apellidoP, String apellidoM, Object medioC)
+public Contacto(int id, String nombre, String apellidoP, String apellidoM, Object medioC)
 {
 	super(((MediosContacto) medioC).getCelular(),((MediosContacto) medioC).getCasa(),((MediosContacto) medioC).getEmail());
+	this.id=id;
 this.nombre=nombre;
 this.apellidoP=apellidoP;
 this.apellidoM=apellidoM;
 this.medioC=medioC;
 }
 
-public Contacto(String nombre, String apellidoP, String apellidoM, Object medioC, String fechaN)
+public Contacto(int id,String nombre, String apellidoP, String apellidoM, Object medioC, String fechaN)
 {
 	super(((MediosContacto) medioC).getCelular(),((MediosContacto) medioC).getCasa(),((MediosContacto) medioC).getEmail());
+	this.id=id;
 this.nombre=nombre;
 this.apellidoP=apellidoP;
 this.apellidoM=apellidoM;
 this.medioC=medioC;
 this.fechaN=fechaN;
+}
+
+public int getId() {
+	return id;
 }
 
 public void setNombre(String nombre)
@@ -74,6 +72,7 @@ public void setFechaN(String fechaN)
 
 public String getFechaN()
 {return fechaN;}
+
 public void setReemplazarC(String nombre, String apellidoP,String apellidoM,Object medioC) {
 	this.nombre=nombre;
 	this.apellidoP=apellidoP;
