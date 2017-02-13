@@ -1,26 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Contactos;
 
-/**
- *
- * @author akare
- */
+
 public class Persona extends Contacto {
 String domicilio;
 String medioPref;
 String ocupacion;
-public Persona(String nombre, String apellidoP, String apellidoM, String mediosCon, String domicilio, String medioPref, String ocupacion){
-	super(nombre,apellidoP, apellidoM, mediosCon);	
+public Persona(int id,String nombre, String apellidoP, String apellidoM, String mediosCon, String domicilio, String medioPref, String ocupacion){
+	super(id,nombre,apellidoP, apellidoM, mediosCon);	
 	this.domicilio=domicilio;
 	this.medioPref=medioPref;
 	this.ocupacion=ocupacion;
 }
 public Persona(Object datosContacto, String domicilio, String medioPref, String ocupacion) {
-	super(((Contacto) datosContacto).getNombre(),((Contacto) datosContacto).getApellidoP(),
+	super(((Contacto) datosContacto).getId(),((Contacto) datosContacto).getNombre(),((Contacto) datosContacto).getApellidoP(),
 			((Contacto) datosContacto).getApellidoM(), ((Contacto) datosContacto).getMedioC());	
 	this.domicilio=domicilio;
 	this.medioPref=medioPref;
@@ -44,10 +36,16 @@ public void setOcupacion(String ocupacion)
 public String getOcupacion()
 {return ocupacion;}
 
+public void setReemplazarP(Persona per) {
+	super.reemplazarC(per.getNombre(), per.getApellidoP(), per.getApellidoM(), per.getMedioC());
+	this.domicilio=per.getDomicilio();
+	this.medioPref=per.getMedioPref();
+	this.ocupacion=per.getOcupacion();
+}
+
 public String toString() {
-	String datosPersona = "NOMBRE: "+getNombre()+" APELLIDO PATERNO: "+getApellidoP()+" APELLIDO MATERNO: "+
+	String datosPersona = "Id: "+getId()+" NOMBRE: "+getNombre()+" APELLIDO PATERNO: "+getApellidoP()+" APELLIDO MATERNO: "+
 			getApellidoM()+" MEDIOS DE CONTACTO "+getMedioC().toString()+" DOMICILIO: "+this.domicilio+
 			" MEDIO DE CONTACTO PREFERIDO: "+this.medioPref+" OCUPACION: "+this.ocupacion;
 	return datosPersona;
-}
 }
