@@ -10,6 +10,7 @@ package Contactos;
  * @author akare
  */
 public class Contacto extends MediosContacto {
+	private int id;
 private String nombre;
 private String apellidoP;
 private String apellidoM;
@@ -26,7 +27,7 @@ apellidoM="Sin Apellido Materno";
 fechaN="Sin Fecha de Nacimiento";
 }
 
-public Contacto(String nombre, String apellidoP, String apellidoM, Object medioC)
+public Contacto(int id,String nombre, String apellidoP, String apellidoM, Object medioC)
 {
 	super(((MediosContacto) medioC).getCelular(),((MediosContacto) medioC).getCasa(),((MediosContacto) medioC).getEmail());
 this.nombre=nombre;
@@ -35,7 +36,7 @@ this.apellidoM=apellidoM;
 this.medioC=medioC;
 }
 
-public Contacto(String nombre, String apellidoP, String apellidoM, Object medioC, String fechaN)
+public Contacto(int id,String nombre, String apellidoP, String apellidoM, Object medioC, String fechaN)
 {
 	super(((MediosContacto) medioC).getCelular(),((MediosContacto) medioC).getCasa(),((MediosContacto) medioC).getEmail());
 this.nombre=nombre;
@@ -45,6 +46,10 @@ this.medioC=medioC;
 this.fechaN=fechaN;
 }
 
+public int getId() {
+	return id;
+}
+	
 public void setNombre(String nombre)
 {this.nombre=nombre;}
 
