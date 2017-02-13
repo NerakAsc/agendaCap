@@ -1,25 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Contactos;
 
-/**
- *
- * @author akare
- */
+
 public class Deportista extends Contacto{
 private String genero;
 private String deporte;
-public Deportista(String nombre, String apellidoP, String apellidoM,String mediosCon, String fechadeN, String genero, String deporte)
+public Deportista(int id, String nombre, String apellidoP, String apellidoM,String mediosCon, String fechadeN, String genero, String deporte)
 {
-super(nombre, apellidoP, apellidoM, mediosCon, fechadeN);	
+super(id,nombre, apellidoP, apellidoM, mediosCon, fechadeN);	
 this.genero=genero;
 this.deporte=deporte;
 }
 public Deportista(Object datosContacto, String genero, String deporte) {
-	super(((Contacto) datosContacto).getNombre(),((Contacto) datosContacto).getApellidoP(),
+	super(((Contacto) datosContacto).getId(),((Contacto) datosContacto).getNombre(),((Contacto) datosContacto).getApellidoP(),
 			((Contacto) datosContacto).getApellidoM(), ((Contacto) datosContacto).getMedioC());
 	this.genero=genero;
 	this.deporte=deporte;
@@ -35,11 +27,17 @@ public void setDeporte(String deporte)
 
 public String getDeporte()
 {return deporte;}
+
+public void setReemplazarD(Deportista dep) {
+	super.setReemplazarC(dep.getNombre(), dep.getApellidoP(), dep.getApellidoM(), dep.getMedioC());
+	this.genero=dep.getGenero();
+	this.deporte=dep.getDeporte();
+}
+
 public String toString() {
-	String datosDeportista = "NOMBRE: "+getNombre()+" APELLIDO PATERNO: "+getApellidoP()+" APELLIDO MATERNO: "+
+	String datosDeportista = "Id: "+getId()+" NOMBRE: "+getNombre()+" APELLIDO PATERNO: "+getApellidoP()+" APELLIDO MATERNO: "+
 			getApellidoM()+" MEDIOS DE CONTACTO "+getMedioC().toString()+" Genero: "+this.genero+
 			" Deporte: "+this.deporte;
 	return datosDeportista;
 }
 }
-
