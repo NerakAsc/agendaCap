@@ -72,17 +72,17 @@ public class MetodosContactos {
 		}*/
 	}
 	
-	public static void remplazarPersona() {//este metodo remplaza el contacto persona
+	public static void remplazarPersona() {//este metodo remplaza el contacto persona mediante el id
 		Scanner in = new Scanner(System.in);
-		System.out.print("Nombre: ");
-		String remplazar = in.next();
+		System.out.print("Dame Id: ");
+		int remplazar = in.nextInt();
 		for(Persona p: listPersona) {
-			/*if(p.getNombre().equals(remplazar))
-				listPersona.set(p);*/
+			if(p.getId()==remplazar) {
+				Persona persona = (Persona)datosPersona();
+				p.setReemplazarP(persona);	
+			}		
 		}
-		
 	}
-	
 	//El metodo a continuacion, se puede hacer referencia al metodo agregarPersona() solo con los datos de contacto deportista 
 	public static void agregarDeportista() throws IOException {
 
