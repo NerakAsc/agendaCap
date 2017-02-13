@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Metodos;
+import java.util.*;
 
-/**
- *
- * @author akare
- */
 import Contactos.Persona;//importamos la clase persona para agregar en lista
 import Contactos.Contacto;
 import Contactos.Deportista;
@@ -16,10 +8,6 @@ import Contactos.Doctor;
 import Contactos.Estudiante;
 import Contactos.Licenciado;
 import Contactos.MediosContacto;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Set;
 
 
 public class MetodosContactos {
@@ -34,6 +22,7 @@ public class MetodosContactos {
 	public static void agregarPersona() {//este metodo agrega a una lista todos los contactos(datos) de persona
 
 		listPersona.add((Persona) datosPersona());//variable: agregamos los datos a la lista
+		
 	}
 	
 	public static Object datosPersona() {//este metodo extrae los datos de persona y regresa un objeto con los datos
@@ -77,8 +66,8 @@ public class MetodosContactos {
 		System.out.print("Nombre: ");
 		String remplazar = in.next();
 		for(Persona p: listPersona) {
-			/*if(p.getNombre().equals(remplazar))
-				listPersona.set(p);*/
+		//	if(p.getNombre().equals(remplazar))
+				//listPersona.set(p);
 		}
 		
 	}
@@ -88,6 +77,7 @@ public class MetodosContactos {
 
 		listDeportista.add((Deportista) datosDeportista());
 	}
+	
 	//El metodo a continuacion, se puede hacer referencia al metodo datosPersona() solo con los datos de contacto deportista
 	public static Object datosDeportista() {
 		Object obj=datosContacto();
@@ -106,6 +96,17 @@ public class MetodosContactos {
 			System.out.println(d.toString());
 		}
 	}
+	
+	public static void borrarDeportista() {
+		Scanner in = new Scanner(System.in);
+		System.out.print("Nombre: ");
+		String borrar = in.next();
+		for(Deportista d: listDeportista){
+			if(d.getNombre().equals(borrar))
+				listDeportista.remove(d);
+		}
+	}
+	
 	//El metodo a continuacion, se puede hacer referencia al metodo agregarPersona() solo con los datos de contacto doctor
 	public static void agregarDoctor() {
 
@@ -130,6 +131,17 @@ public class MetodosContactos {
 			System.out.println(d.toString());
 		}
 	}
+	
+	public static void borrarDoctor() {
+		Scanner in = new Scanner(System.in);
+		System.out.print("Nombre: ");
+		String borrar = in.next();
+		for(Doctor d: listDoctor){
+			if(d.getNombre().equals(borrar))
+				listDoctor.remove(d);
+		}
+	}
+	
 	//El metodo a continuacion, se puede hacer referencia al metodo agregarPersona() solo con los datos de contacto estudiante 
 	public static void agregarEstudiante() {
 
@@ -153,6 +165,18 @@ public class MetodosContactos {
 			System.out.println(e.toString());
 		}
 	}
+	
+	public static void borrarEstudiante() {
+		Scanner in = new Scanner(System.in);
+		System.out.print("Nombre: ");
+		String borrar = in.next();
+		for(Estudiante e: listEstudiante){
+			if(e.getNombre().equals(borrar))
+				listEstudiante.remove(e);
+		}
+	}
+	
+	
 	//El metodo a continuacion, se puede hacer referencia al metodo agregarPersona() solo con los datos de contacto licenciado 
 	public static void agregarLicenciado() {
 	
@@ -177,6 +201,15 @@ public class MetodosContactos {
 		}
 	}
 	
+	public static void borrarLicenciado() {
+		Scanner in = new Scanner(System.in);
+		System.out.print("Nombre: ");
+		String borrar = in.next();
+		for(Licenciado e: listLicenciado){
+			if(e.getNombre().equals(borrar))
+				listLicenciado.remove(e);
+		}
+	}
 	public static Object datosContacto() {//este metodo extrae los datos para la clase Contacto de la que extienden los demas contactos
 		Scanner in = new Scanner(System.in);
 		System.out.print("Nombre: ");
@@ -226,4 +259,3 @@ public class MetodosContactos {
 		return mediosC;	
 	}
 }
-

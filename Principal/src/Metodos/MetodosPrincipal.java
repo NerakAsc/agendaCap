@@ -1,16 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Metodos;
+import java.util.Scanner;//importa la libreria para la clase Scanner
 
-import java.util.Scanner;
-
-/**
- *
- * @author akare
- */
 public class MetodosPrincipal extends MetodosContactos{//extendemos de la clase MetodosContactos para utilisar sus metodos
 	
 	public static void agregar(int opcionContacto) {//metodo utilizado en la clase principal UsoContacto, que segun la respuesta agrega el tipo de contacto
@@ -40,8 +30,20 @@ public class MetodosPrincipal extends MetodosContactos{//extendemos de la clase 
 		
 	}
 	
-	public static void borrar() {//metodo que borara segun el tipo de contacto y nombre
-		borrarPersona();
+	public static void borrar(int opcionontacto) {//metodo que borara segun el tipo de contacto y nombre
+		
+		if(opcionontacto==1)
+			borrarPersona(); //es un atributo de la clase MEtodosContactos
+		if(opcionontacto==2)
+			borrarDeportista();
+		if(opcionontacto==3)
+			borrarDoctor();
+		if(opcionontacto==4)
+			borrarEstudiante();
+		if(opcionontacto==5)
+			borrarLicenciado();
+		
+		
 	}
 	
 	public static void remplazar() {
@@ -65,5 +67,5 @@ public class MetodosPrincipal extends MetodosContactos{//extendemos de la clase 
 		System.out.println("\n");
 		return opcion;//regresa la opcion que se cacha en la clase principal
 	}
+	
 }
-
