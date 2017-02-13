@@ -100,10 +100,6 @@ public class MetodosContactos {
 	public static Object datosDeportista() throws IOException {
 		Object obj=datosContactoFechaN();
                 String genero=" ",deporte=" ";
-		/*while(genero==" "){
-                    System.out.print("Genero M/F: ");
-                    genero = in.readLine();
-                }*/
                 genero= generoD();
                 
                 if(genero!= "")
@@ -176,16 +172,33 @@ public class MetodosContactos {
 		listEstudiante.add((Estudiante) datosEstudiante());
 	}
 	//El metodo a continuacion, se puede hacer referencia al metodo datosPersona() solo con los datos de contacto estudiante
-	private static Object datosEstudiante() throws IOException {
+		private static Object datosEstudiante() throws IOException {
 		Object obj=datosContactoFechaN();
-		System.out.print("Lugar de nacimiento: ");
-		String lugarN = in.readLine();
-		System.out.print("Carrera que estudia: ");
-		String carreraE = in.readLine();
-		Estudiante est = new Estudiante(obj,lugarN,carreraE);
+                String lugarN="", email="", carreraE="";
+                boolean correcto=false;
+                while(lugarN.isEmpty()){
+                    System.out.print("Lugar de nacimiento: ");
+                    lugarN = in.readLine(); }               
+                while(email.isEmpty()){
+                	
+                    System.out.print("Email: ");
+                   String email2 = in.readLine();
+                if(email2.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")){
+                	email=email2;
+                }    
+                else{email="";
+                System.out.println("Verifica que el correo sea valido.");
+                }
+                }
+            
+                while(carreraE.isEmpty()){
+                    System.out.print("Carrera que estudia: ");
+                    carreraE = in.readLine();
+                }
+		Estudiante est = new Estudiante(obj,lugarN,carreraE, email);
 		return est;
 	}
-	
+
 	public static void mostrarEstudiante() {//este metodo muestra la lista estudiantes
 		System.out.println("_-=LISTA DE ESTUDIANTES=-_");
 		for(Estudiante e: listEstudiante) {
@@ -198,15 +211,32 @@ public class MetodosContactos {
 		listLicenciado.add((Licenciado) datosLicenciado());
 	}
 	//El metodo a continuacion, se puede hacer referencia al metodo datosPersona() solo con los datos de contacto licenciado
-	private static Object datosLicenciado() throws IOException {
+	private static Object datosLicenciado()throws IOException {
 		Object obj=datosContacto();
+		
+		
+		String telOf = "";
+		while(telOf.isEmpty()){
 		System.out.print("Telefono de oficina: ");
-		String telOf = in.readLine();
-		System.out.print("Horario de atencion: ");
-		String horaA = in.readLine();
-		Licenciado lic = new Licenciado(obj,telOf,horaA);
+		telOf = in.readLine();//String: para el domicilio
+		}
+		String horaA="";
+		String horaB="";
+		while(horaA.isEmpty()){
+            System.out.print("Horario de atencion: ");
+            System.out.println("Ingresa el horario de inicio:");
+            horaA = in.readLine();//String: para el domicilio
+            while(horaB.isEmpty()){
+                System.out.println("Ingresa el horario de salida:");
+                horaB = in.readLine();//String: para el domicilio
+            }
+        }
+		String horaF=horaA+"-"+horaB;
+	
+		Licenciado lic = new Licenciado(obj,telOf,horaF);
 		return lic;
 	}
+	
 	
 	public static void mostrarLicenciado() {//este metodo muestra la lista licenciado
 		System.out.println("_-=LISTA DE LICENCIADOS=-_");
