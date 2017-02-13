@@ -18,7 +18,9 @@ apellidoM="Sin Apellido Materno";
 fechaN="Sin Fecha de Nacimiento";
 }
 
+
 public Contacto(int id, String nombre, String apellidoP, String apellidoM, Object medioC)
+
 {
 	super(((MediosContacto) medioC).getCelular(),((MediosContacto) medioC).getCasa(),((MediosContacto) medioC).getEmail());
 	this.id=id;
