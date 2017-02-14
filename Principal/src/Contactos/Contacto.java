@@ -1,44 +1,33 @@
-package Contactos;
-
-
 public class Contacto extends MediosContacto {
 	private int id;
 private String nombre;
 private String apellidoP;
 private String apellidoM;
-private Object medioC;
-private String fechaN;
 
 public Contacto()
 {
 nombre="Sin Nombre";
 apellidoP="Sin Apellido Paterno";
 apellidoM="Sin Apellido Materno";
-//medioC="Sin Medio de Contacto";
-fechaN="Sin Fecha de Nacimiento";
 }
 
+
+public Contacto(int id, String nombre, String apellidoP, String apellidoM)
+
+{
+	this.id=id;
+        this.nombre=nombre;
+        this.apellidoP=apellidoP;
+        this.apellidoM=apellidoM;
+}
 
 public Contacto(int id, String nombre, String apellidoP, String apellidoM, Object medioC)
-
 {
-	super(((MediosContacto) medioC).getCelular(),((MediosContacto) medioC).getCasa(),((MediosContacto) medioC).getEmail());
+	super(((MediosContacto) medioC).getMedio(),((MediosContacto) medioC).getValor());
 	this.id=id;
-this.nombre=nombre;
-this.apellidoP=apellidoP;
-this.apellidoM=apellidoM;
-this.medioC=medioC;
-}
-
-public Contacto(int id,String nombre, String apellidoP, String apellidoM, Object medioC, String fechaN)
-{
-	super(((MediosContacto) medioC).getCelular(),((MediosContacto) medioC).getCasa(),((MediosContacto) medioC).getEmail());
-	this.id=id;
-this.nombre=nombre;
-this.apellidoP=apellidoP;
-this.apellidoM=apellidoM;
-this.medioC=medioC;
-this.fechaN=fechaN;
+        this.nombre=nombre;
+        this.apellidoP=apellidoP;
+        this.apellidoM=apellidoM;
 }
 
 public int getId() {
@@ -63,23 +52,15 @@ public void setApellidoM(String apellidoM)
 public String getApellidoM()
 {return apellidoM;}
 
-public void setMediosC(MediosContacto medioC)
-{this.medioC=medioC;}
-
-public Object getMedioC()
-{return medioC;}
-
-public void setFechaN(String fechaN)
-{this.fechaN=fechaN;}
-
-public String getFechaN()
-{return fechaN;}
-
-public void setReemplazarC(String nombre, String apellidoP,String apellidoM,Object medioC) {
+public void setReemplazarC(String nombre, String apellidoP,String apellidoM) {
 	this.nombre=nombre;
 	this.apellidoP=apellidoP;
 	this.apellidoM=apellidoM;
-	this.medioC=medioC;
+	//this.medioC=medioC;
+}
+
+public String superToString() {
+	return super.toString();
 }
 
 public String toString() {
